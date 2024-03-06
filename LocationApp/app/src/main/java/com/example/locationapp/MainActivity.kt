@@ -1,10 +1,12 @@
 package com.example.locationapp
 
+import android.content.Context
 import android.location.GpsStatus
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import com.example.locationapp.Models.Location
 import com.google.gson.Gson
 import org.osmdroid.api.IMapController
 import org.osmdroid.config.Configuration
@@ -16,13 +18,9 @@ import org.osmdroid.util.GeoPoint
 import org.osmdroid.views.MapView
 import org.osmdroid.views.overlay.Marker
 import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay
-import java.io.File
+import java.io.BufferedReader
+import java.io.InputStreamReader
 
-data class Locations(
-    val id: Int,
-    val Longitude: Int,
-    val Latitude: Int
-)
 
 class MainActivity : AppCompatActivity(), MapListener, GpsStatus.Listener {
 
@@ -43,19 +41,24 @@ class MainActivity : AppCompatActivity(), MapListener, GpsStatus.Listener {
         // Set map tile source
         mMap.setTileSource(TileSourceFactory.MAPNIK)
 
-        FetchLocations()
+
+        val gson = Gson()
+        val locations:Array<Location> = gson.fromJson(ReadJSONFromAssets(baseContext, "locations.json"),
+            Array<Location>::class.java)
+
+        for (location in locations) {
+            var geoPoint = org.osmdroid.util.GeoPoint(location.latitude, location.longitude) // Replace with desired coordinates
+            var marker = Marker(mMap)
+            marker.position = geoPoint
+            marker.icon = ContextCompat.getDrawable(this, R.drawable.marker_icon) // Replace with your icon resource ID
+            marker.title = location.naam
+            marker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_CENTER)
+            mMap.overlays.add(marker)
+        }
 
         // Center map on specific position
         centerMapOnPosition(51.6506518, 5.0497462, 17.0)
 
-        // ... other code for location overlay and map interactions ...
-        val geoPoint = org.osmdroid.util.GeoPoint(51.6506518, 5.0497462) // Replace with desired coordinates
-        val marker = Marker(mMap)
-        marker.position = geoPoint
-        marker.icon = ContextCompat.getDrawable(this, R.drawable.marker_icon) // Replace with your icon resource ID
-        marker.title = "Holle Bolle Gijs 1"
-        marker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_CENTER)
-        mMap.overlays.add(marker)
     }
 
     fun centerMapOnPosition(latitude: Double, longitude: Double, zoomLevel: Double) {
@@ -87,14 +90,25 @@ class MainActivity : AppCompatActivity(), MapListener, GpsStatus.Listener {
     override fun onGpsStatusChanged(event: Int) {
     }
 
-    fun FetchLocations() {
-        // Fetch Locations
-        val jsonFile = File("res/locations.json")
-        val jsonString = jsonFile.readText()
-        val gson = Gson()
-        val location:Locations = gson.fromJson(jsonString, Locations::class.java)
 
-        println("ID: ${location.Latitude}")
+    fun ReadJSONFromAssets(context: Context, path: String): String {
+        val identifier = "[ReadJSON]"
+        try {
+            val file = context.assets.open("$path")
+            val bufferedReader = BufferedReader(InputStreamReader(file))
+            val stringBuilder = StringBuilder()
+            bufferedReader.useLines { lines ->
+                lines.forEach {
+                    stringBuilder.append(it)
+                }
+            }
+            val jsonString = stringBuilder.toString()
+            return jsonString
+        } catch (e: Exception) {
+            e.printStackTrace()
+            return ""
+        }
     }
+
 }
 

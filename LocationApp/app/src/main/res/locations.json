@@ -1,5 +1,65 @@
 {
-    "id": 1,
-    "Longitude": 51.6506518,
-    "Latitude": 5.0497462
+    "location": [
+      {
+        "id": "1",
+        "naam": "Speeltuin Gijs",
+        "longitude": [51.652415],
+        "latitude": [5.049207]
+      },
+      {
+        "id": "2",
+        "naam": "Wagen Gijs",
+        "longitude": [51.649599],
+        "latitude": [5.047699]
+      },
+      {
+        "id": "3",
+        "naam": "Baby Gijsje",
+        "longitude": [51.653344],
+        "latitude": [5.047846]
+      },
+      {
+        "id": "4",
+        "naam": "Opa Gijs",
+        "longitude": [51.650807],
+        "latitude": [5.045915]
+      },
+      {
+        "id": "5",
+        "naam": "Moeder en Tweeling Gijs",
+        "longitude": [51.652593],
+        "latitude": [5.050228]
+      },
+      {
+        "id": "6",
+        "naam": "Kapitein Gijs",
+        "longitude": [51.647402],
+        "latitude": [5.052829]
+      },
+      {
+        "id": "7",
+        "naam": "Geeuwende Gijs",
+        "longitude": [51.651735],
+        "latitude": [5.048604]
+      },
+      {
+        "id": "8",
+        "naam": "Inca Gijs",
+        "longitude": [51.647609],
+        "latitude": [5.049018]
+      },
+      {
+        "id": "9",
+        "naam": "Oompje Gijs",
+        "longitude": [51.648119],
+        "latitude": [5.046776]
+      },
+      {
+        "id": "10",
+        "naam": "Nijltje in het Tijltje",
+        "longitude": [51.651863],
+        "latitude": [5.053525]
+      }
+    ]
   }
+  
