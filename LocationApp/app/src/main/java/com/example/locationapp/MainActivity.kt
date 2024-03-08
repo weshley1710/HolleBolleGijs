@@ -1,6 +1,7 @@
 package com.example.locationapp
 
 import android.content.Context
+import android.content.res.Resources
 import android.location.GpsStatus
 import android.os.Bundle
 import android.util.Log
@@ -14,7 +15,6 @@ import org.osmdroid.events.MapListener
 import org.osmdroid.events.ScrollEvent
 import org.osmdroid.events.ZoomEvent
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory
-import org.osmdroid.util.GeoPoint
 import org.osmdroid.views.MapView
 import org.osmdroid.views.overlay.Marker
 import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay
@@ -50,7 +50,22 @@ class MainActivity : AppCompatActivity(), MapListener, GpsStatus.Listener {
             var geoPoint = org.osmdroid.util.GeoPoint(location.latitude, location.longitude) // Replace with desired coordinates
             var marker = Marker(mMap)
             marker.position = geoPoint
-            marker.icon = ContextCompat.getDrawable(this, R.drawable.marker_icon) // Replace with your icon resource ID
+            // Custom marker
+            var iconResId = location.image
+            println("Baseline: ${R.drawable.baseline}")
+            if (iconResId != 0) {
+                try {
+                    val drawable = ContextCompat.getDrawable(this, iconResId)
+                    marker.icon = drawable
+                } catch (e: Resources.NotFoundException) {
+                    Log.e("TAG", "Resource not found: $iconResId", e)
+                    marker.icon = ContextCompat.getDrawable(this, R.drawable.baseline)
+                }
+            } else {
+                marker.icon = ContextCompat.getDrawable(this, R.drawable.baseline)
+            }
+
+//            marker.icon = ContextCompat.getDrawable(this, R.drawable.marker_icon) // Replace with your icon resource ID
             marker.title = location.naam
             marker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_CENTER)
             mMap.overlays.add(marker)
@@ -102,8 +117,7 @@ class MainActivity : AppCompatActivity(), MapListener, GpsStatus.Listener {
                     stringBuilder.append(it)
                 }
             }
-            val jsonString = stringBuilder.toString()
-            return jsonString
+            return stringBuilder.toString()
         } catch (e: Exception) {
             e.printStackTrace()
             return ""
