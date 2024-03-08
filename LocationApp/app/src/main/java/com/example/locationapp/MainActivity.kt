@@ -52,17 +52,16 @@ class MainActivity : AppCompatActivity(), MapListener, GpsStatus.Listener {
             marker.position = geoPoint
             // Custom marker
             var iconResId = location.image
-            println("Baseline: ${R.drawable.baseline}")
             if (iconResId != 0) {
                 try {
                     val drawable = ContextCompat.getDrawable(this, iconResId)
                     marker.icon = drawable
                 } catch (e: Resources.NotFoundException) {
                     Log.e("TAG", "Resource not found: $iconResId", e)
-                    marker.icon = ContextCompat.getDrawable(this, R.drawable.baseline)
+                    marker.icon = ContextCompat.getDrawable(this, R.drawable.marker_icon)
                 }
             } else {
-                marker.icon = ContextCompat.getDrawable(this, R.drawable.baseline)
+                marker.icon = ContextCompat.getDrawable(this, R.drawable.marker_icon)
             }
 
 //            marker.icon = ContextCompat.getDrawable(this, R.drawable.marker_icon) // Replace with your icon resource ID
