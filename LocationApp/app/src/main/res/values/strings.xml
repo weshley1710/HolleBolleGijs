@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Location App</string>
     <string name="title_activity_maps">MapsActivity</string>
-
+    <string name="start">Start Holle Bolle Gijs Tour</string>
 </resources>
