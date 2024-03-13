@@ -4,9 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
     android:background="#FAFBF6">
-
 
     <ImageView
         android:id="@+id/imageView"
@@ -23,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:text="Holle Bolle Gijs"
+        android:text="@string/HolleBolleGijs"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,7 +33,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:text="Beleef avonturen in het sprookjesachtige land van de Efteling. Gooi je zorgen weg en geniet samen van de magie en betovering die Holle Bolle Gijs je te bieden heeft."
+        android:text="@string/onderschriftOverzicht"
         android:gravity="center"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,9 +45,10 @@
         android:id="@+id/imageView2"
         android:layout_width="411dp"
         android:layout_height="63dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/menu"
-        tools:layout_editor_absoluteX="-16dp"
-        tools:layout_editor_absoluteY="612dp" />
+        tools:ignore="MissingConstraints" />
 
     <ImageView
         android:id="@+id/imageView3"

@@ -27,9 +27,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LocationActivity" >
-
-        </activity>
+        <activity android:name=".LocationActivity" />
         <activity android:name=".OverviewActivity" />
         <activity android:name=".StamboomActivity" />
     </application>

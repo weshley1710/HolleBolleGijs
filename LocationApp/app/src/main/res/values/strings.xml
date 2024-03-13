@@ -2,4 +2,6 @@
     <string name="app_name">Location App</string>
     <string name="title_activity_maps">MapsActivity</string>
     <string name="start">Start Holle Bolle Gijs Tour</string>
+    <string name="HolleBolleGijs">Holle Bolle Gijs</string>
+    <string name="onderschriftOverzicht">Beleef avonturen in het sprookjesachtige land van de Efteling. Gooi je zorgen weg en geniet samen van de magie en betovering die Holle Bolle Gijs je te bieden heeft.</string>
 </resources>
