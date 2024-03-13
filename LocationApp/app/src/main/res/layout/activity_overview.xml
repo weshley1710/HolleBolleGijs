@@ -1,173 +1,180 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FAFBF6">
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="412dp"
-        android:layout_height="293dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.515"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/topimgoverzicht"
-        tools:layout_editor_absoluteY="-19dp" />
-
-    <TextView
-        android:id="@+id/textViewTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="@string/HolleBolleGijs"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
-
-    <TextView
-        android:id="@+id/textViewContent"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="@string/onderschriftOverzicht"
-        android:gravity="center"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewTitle" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="411dp"
-        android:layout_height="63dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/menu"
-        tools:ignore="MissingConstraints" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="128dp"
-        android:layout_height="121dp"
-        android:layout_marginTop="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:srcCompat="@drawable/hbgicon" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="95dp"
-        android:layout_height="17dp"
-        android:layout_marginTop="140dp"
-        android:fontFamily="@font/anton_pieck"
-        android:gravity="center"
-        android:text="En toen..."
-        android:textColor="@android:color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="250dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/anton_pieck"
-        android:gravity="center"
-        android:text="Holle Bolle Gijs werd prijsgegeven"
-        android:textColor="@android:color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-        <!-- Box container -->
-    <LinearLayout
-        android:id="@+id/boxContainer"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:orientation="vertical"
-        android:background="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
+        android:layout_height="match_parent">
 
-        <!-- Top row -->
         <LinearLayout
-            android:id="@+id/topRow"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <!-- Left image -->
-
-            <!-- Right column -->
-
+            android:orientation="vertical">
             <ImageView
-                android:id="@+id/leftImage"
-                android:layout_width="242dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:src="@drawable/wagengissa" />
+                android:id="@+id/imageView"
+                android:layout_width="412dp"
+                android:layout_height="293dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.515"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/topimgoverzicht"
+                tools:layout_editor_absoluteY="-19dp" />
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/textViewTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_marginTop="12dp"
+                android:text="@string/HolleBolleGijs"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
-                <!-- Top right image -->
+            <TextView
+                android:id="@+id/textViewContent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/onderschriftOverzicht"
+                android:gravity="center"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textViewTitle" />
 
-                <!-- Bottom right image -->
-                <ImageView
-                    android:id="@+id/topRightImage"
-                    android:layout_width="111dp"
-                    android:layout_height="77dp"
-                    android:src="@drawable/tweelinggissa" />
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="411dp"
+                android:layout_height="63dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/menu"
+                tools:ignore="MissingConstraints" />
 
-                <ImageView
-                    android:id="@+id/bottomRightImage"
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="128dp"
+                android:layout_height="121dp"
+                android:layout_marginTop="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView"
+                app:srcCompat="@drawable/hbgicon" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="95dp"
+                android:layout_height="17dp"
+                android:layout_marginTop="140dp"
+                android:fontFamily="@font/anton_pieck"
+                android:gravity="center"
+                android:text="En toen..."
+                android:textColor="@android:color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="250dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/anton_pieck"
+                android:gravity="center"
+                android:text="Holle Bolle Gijs werd prijsgegeven"
+                android:textColor="@android:color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.496"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+            <!-- Box container -->
+            <LinearLayout
+                android:id="@+id/boxContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:orientation="vertical"
+                android:background="#FFFFFF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0">
+
+                <!-- Top row -->
+                <LinearLayout
+                    android:id="@+id/topRow"
                     android:layout_width="match_parent"
-                    android:layout_height="79dp"
-                    android:src="@drawable/babygissa" />
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <!-- Left image -->
+
+                    <!-- Right column -->
+
+                    <ImageView
+                        android:id="@+id/leftImage"
+                        android:layout_width="242dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:src="@drawable/wagengissa" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <!-- Top right image -->
+
+                        <!-- Bottom right image -->
+                        <ImageView
+                            android:id="@+id/topRightImage"
+                            android:layout_width="111dp"
+                            android:layout_height="77dp"
+                            android:src="@drawable/tweelinggissa" />
+
+                        <ImageView
+                            android:id="@+id/bottomRightImage"
+                            android:layout_width="match_parent"
+                            android:layout_height="79dp"
+                            android:src="@drawable/babygissa" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Title text -->
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Jouw persoonlijke Groet"
+                    android:textStyle="bold" />
+
+                <!-- Content text -->
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="''Goedendag vrienden!'' Hier spreekt jullie vrolijke papierprins van de Efteling! Ik ben hier niet alleen om jullie afval op te eten, maar ook om jullie dag een beetje magischer te maken." />
+
+                <!-- Button -->
+                <Button
+                    android:id="@+id/submitButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:onClick="stamboomactivity"
+                    android:text="Jouw persoonlijke groet" />
 
             </LinearLayout>
         </LinearLayout>
+    </ScrollView>
 
-        <!-- Title text -->
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Jouw persoonlijke Groet"
-            android:textStyle="bold" />
-
-        <!-- Content text -->
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="''Goedendag vrienden!'' Hier spreekt jullie vrolijke papierprins van de Efteling! Ik ben hier niet alleen om jullie afval op te eten, maar ook om jullie dag een beetje magischer te maken." />
-
-        <!-- Button -->
-        <Button
-            android:id="@+id/submitButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:onClick="stamboomactivity"
-            android:text="Jouw persoonlijke groet" />
-
-    </LinearLayout>
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
