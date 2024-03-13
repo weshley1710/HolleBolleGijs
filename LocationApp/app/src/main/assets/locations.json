@@ -4,69 +4,79 @@
       "naam": "Speeltuin Gijs",
       "latitude": 51.652415,
       "longitude": 5.049207,
-      "image": 2131165467
+      "image": 2131165467,
+      "data": "speeltuingijs.xml"
     },
     {
       "id": "2",
       "naam": "Wagen Gijs",
       "latitude": 51.649599,
       "longitude": 5.047699,
-      "image": 2131165468
+      "image": 2131165468,
+      "data": "wagengijs.xml"
     },
     {
       "id": "3",
       "naam": "Baby Gijsje",
       "latitude": 51.653344,
       "longitude": 5.047846,
-      "image": 2131165466
+      "image": 2131165466,
+      "data": "babygijsje.xml"
     },
     {
       "id": "4",
       "naam": "Opa Gijs",
       "latitude": 51.650807,
       "longitude": 5.045915,
-      "image": 2131165469
+      "image": 2131165469,
+      "data": "opagijs.xml"
     },
     {
       "id": "5",
       "naam": "Moeder en Tweeling Gijs",
       "latitude": 51.652593,
       "longitude": 5.050228,
-      "image": 2131165470
+      "image": 2131165470,
+      "data": "moedergijs.xml"
     },
     {
       "id": "6",
       "naam": "Kapitein Gijs",
       "latitude": 51.647402,
       "longitude": 5.052829,
-      "image": 2131165464
+      "image": 2131165464,
+      "data": "kapiteingijs.xml"
     },
     {
       "id": "7",
       "naam": "Geeuwende Gijs",
       "latitude": 51.651735,
       "longitude": 5.048604,
-      "image": 2131165341
+      "image": 2131165341,
+      "data": "moedergijs.xml"
     },
     {
       "id": "8",
       "naam": "Inca Gijs",
       "latitude": 51.647609,
       "longitude": 5.049018,
-      "image": 2131165463
+      "image": 2131165463,
+      "data": "incagijs.xml"
     },
     {
       "id": "9",
       "naam": "Oompje Gijs",
       "latitude": 51.648119,
       "longitude": 5.046776,
-      "image": 2131165471
+      "image": 2131165471,
+      "data": "oompjegijs.xml"
     },
     {
       "id": "10",
       "naam": "Nijltje in het Tijltje",
       "latitude": 51.651863,
       "longitude": 5.053525,
-      "image": 2131165472
+      "image": 2131165472,
+      "data": "nijltjeinhettijltje.xml"
     }
   ]

@@ -73,7 +73,6 @@ class LocationActivity: AppCompatActivity(), MapListener, GpsStatus.Listener  {
 
         // Center map on specific position
         centerMapOnPosition(51.6506518, 5.0497462, 17.0)
-
     }
 
     fun centerMapOnPosition(latitude: Double, longitude: Double, zoomLevel: Double) {
