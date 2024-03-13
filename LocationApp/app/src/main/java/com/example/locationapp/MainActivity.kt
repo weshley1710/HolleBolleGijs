@@ -17,5 +17,9 @@ class MainActivity : AppCompatActivity() {
     fun startactivity(view: View) {
         startActivity(Intent(this, LocationActivity::class.java))
     }
+
+    fun overviewactivity(view: View) {
+        startActivity(Intent(this, OverviewActivity::class.java))
+    }
 }
 
