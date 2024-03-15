@@ -18,6 +18,7 @@ import org.osmdroid.events.ZoomEvent
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory
 import org.osmdroid.views.MapView
 import org.osmdroid.views.overlay.Marker
+import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider
 import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay
 import java.io.BufferedReader
 import java.io.InputStreamReader
@@ -77,6 +78,23 @@ class LocationActivity: AppCompatActivity(), MapListener, GpsStatus.Listener  {
 
         // Center map on specific position
         centerMapOnPosition(51.6506518, 5.0497462, 17.0)
+
+        mMyLocationOverlay = MyLocationNewOverlay(GpsMyLocationProvider(this), mMap)
+        controller = mMap.controller
+
+        mMyLocationOverlay.enableMyLocation()
+        mMyLocationOverlay.enableFollowLocation()
+        mMyLocationOverlay.isDrawAccuracyEnabled = true
+        mMyLocationOverlay.runOnFirstFix {
+            runOnUiThread {
+                controller.setCenter(mMyLocationOverlay.myLocation);
+                controller.animateTo(mMyLocationOverlay.myLocation)
+            }
+        }
+
+
+        // controller.animateTo(mapPoint)
+        mMap.overlays.add(mMyLocationOverlay)
     }
 
     fun centerMapOnPosition(latitude: Double, longitude: Double, zoomLevel: Double) {
