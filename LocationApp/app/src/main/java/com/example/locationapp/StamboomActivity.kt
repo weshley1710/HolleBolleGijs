@@ -1,6 +1,8 @@
 package com.example.locationapp
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 
 class StamboomActivity : AppCompatActivity() {
@@ -10,5 +12,7 @@ class StamboomActivity : AppCompatActivity() {
         setContentView(R.layout.activity_stamboom) // Zorg ervoor dat de juiste layout wordt ingesteld
     }
 
-    // Implementeer andere levenscyclusmethoden zoals onStart(), onResume(), enz. indien nodig
+    fun mainactivity(view: View) {
+        startActivity(Intent(this, MainActivity::class.java))
+    }
 }

@@ -16,9 +16,11 @@ class OverviewActivity : AppCompatActivity() {
         startActivity(Intent(this, StamboomActivity::class.java))
     }
 
+    fun starttouractivity(view: View) {
+        startActivity(Intent(this, StarttourActivity::class.java))
+    }
+
     fun mainactivity(view: View) {
         startActivity(Intent(this, MainActivity::class.java))
     }
-
-    // Implementeer andere levenscyclusmethoden zoals onStart(), onResume(), enz. indien nodig
 }

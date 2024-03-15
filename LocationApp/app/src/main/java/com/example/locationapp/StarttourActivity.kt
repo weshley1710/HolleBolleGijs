@@ -14,8 +14,8 @@ class StarttourActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_starttour) // Zorg ervoor dat de juiste layout wordt ingesteld
     }
-        fun mainactivity(view: View) {
-            startActivity(Intent(this, MainActivity::class.java))
+        fun overviewactivity(view: View) {
+            startActivity(Intent(this, OverviewActivity::class.java))
         }
 
 //        val popUpBtn = findViewById<Button>(R.id.btn)
