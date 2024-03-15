@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- standard -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="achtergrondapp">#FAFBF6</color>
-    <color name="redefteling1">#B71234</color>
-    <color name="redefteling2">#9F0D2B</color>
-    <color name="transparent">#00FFFFFF</color>
 
     <!-- border color -->
     <color name="gray">#CECECD</color>
 
     <!-- background color -->
     <color name="backgroundcolor">#FAFBF6</color>
+    <color name="achtergrondapp">#FAFBF6</color>
+
+    <!-- weslhey niet knop -->
+    <color name="redefteling1">#B71234</color>
+    <color name="redefteling2">#9F0D2B</color>
+    <color name="transparent">#00FFFFFF</color>
 
 </resources>
