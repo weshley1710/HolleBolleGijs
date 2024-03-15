@@ -4,180 +4,231 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FAFBF6">
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="412dp"
-        android:layout_height="293dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.515"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/topimgoverzicht"
-        tools:layout_editor_absoluteY="-19dp" />
-
-    <TextView
-        android:id="@+id/textViewTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="@string/HolleBolleGijs"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
-
-    <TextView
-        android:id="@+id/textViewContent"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="@string/onderschriftOverzicht"
-        android:gravity="center"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewTitle" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="411dp"
-        android:layout_height="63dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/menu"
-        tools:ignore="MissingConstraints" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="128dp"
-        android:layout_height="121dp"
-        android:layout_marginTop="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:srcCompat="@drawable/hbgicon" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="95dp"
-        android:layout_height="17dp"
-        android:layout_marginTop="140dp"
-        android:fontFamily="@font/anton_pieck"
-        android:gravity="center"
-        android:text="En toen..."
-        android:textColor="@android:color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="250dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/anton_pieck"
-        android:gravity="center"
-        android:text="Holle Bolle Gijs werd prijsgegeven"
-        android:textColor="@android:color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-        <!-- Box container -->
-    <LinearLayout
-        android:id="@+id/boxContainer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:orientation="vertical"
-        android:background="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
-
-        <!-- Top row -->
-        <LinearLayout
-            android:id="@+id/topRow"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <!-- Left image -->
-
-            <!-- Right column -->
-
-            <ImageView
-                android:id="@+id/leftImage"
-                android:layout_width="242dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:src="@drawable/wagengissa" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <!-- Top right image -->
-
-                <!-- Bottom right image -->
-                <ImageView
-                    android:id="@+id/topRightImage"
-                    android:layout_width="111dp"
-                    android:layout_height="77dp"
-                    android:src="@drawable/tweelinggissa" />
-
-                <ImageView
-                    android:id="@+id/bottomRightImage"
-                    android:layout_width="match_parent"
-                    android:layout_height="79dp"
-                    android:src="@drawable/babygissa" />
-
-            </LinearLayout>
-        </LinearLayout>
-
-        <!-- Title text -->
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Jouw persoonlijke Groet"
-            android:textStyle="bold" />
-
-        <!-- Content text -->
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="''Goedendag vrienden!'' Hier spreekt jullie vrolijke papierprins van de Efteling! Ik ben hier niet alleen om jullie afval op te eten, maar ook om jullie dag een beetje magischer te maken." />
-
-        <!-- Button -->
-        <Button
-            android:id="@+id/submitButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:onClick="stamboomactivity"
-            android:text="Jouw persoonlijke groet" />
-
-    </LinearLayout>
-
+    android:background="@color/backgroundcolor">
+    
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginBottom="60dp">
 
         <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="260dp"
+                    android:contentDescription="@string/HolleBolleGijs"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/topimgoverzicht" />
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="95dp"
+                    android:layout_height="17dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="154dp"
+                    android:layout_marginTop="127dp"
+                    android:layout_marginEnd="161dp"
+                    android:fontFamily="@font/anton_pieck"
+                    android:gravity="center"
+                    android:text="@string/entoen"
+                    android:textColor="@android:color/white" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="250dp"
+                    android:layout_height="48dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="77dp"
+                    android:layout_marginTop="138dp"
+                    android:layout_marginEnd="83dp"
+                    android:fontFamily="@font/anton_pieck"
+                    android:gravity="center"
+                    android:text="@string/vervolgEntoen"
+                    android:textColor="@android:color/white" />
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="97dp"
+                android:layout_height="94dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="12dp"
+                android:contentDescription="@string/HolleBolleGijs"
+                app:srcCompat="@drawable/hbgicon" />
+
+            <TextView
+                android:id="@+id/textViewTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_gravity="center"
+                android:text="@string/titelOverzicht"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textViewContent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:text="@string/onderschriftOverzicht"
+                android:gravity="center"
+                android:textSize="16sp" />
+
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:background="@drawable/borderoverview"
+                android:layout_margin="20dp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/drieInEenAfbeeldingNaam"
+                    android:layout_width="wrap_content"
+                    android:layout_height="183dp"
+                    android:contentDescription="@string/HolleBolleGijs"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/afbeeldingindrienaam" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/persoonlijkeGroet"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:textSize="16sp"
+                    android:text="@string/onderschriftPersoonlijkeGroet" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageButton
+                        android:id="@+id/imageButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginTop="-8dp"
+                        android:layout_marginBottom="-8dp"
+                        android:background="@null"
+                        android:src="@drawable/witteknop"
+                        android:contentDescription="@string/HolleBolleGijs"
+                        android:scaleType="fitCenter"
+                        android:layout_centerInParent="true"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/knopPersoonlijkeGroet"
+                        android:textStyle="bold"
+                        android:textSize="17sp"
+                        android:layout_centerInParent="true"/>
+                </RelativeLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:background="@drawable/borderoverview"
+                android:layout_margin="20dp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/drieInEenAfbeeldingSpeurtocht"
+                    android:layout_width="wrap_content"
+                    android:layout_height="183dp"
+                    android:contentDescription="@string/HolleBolleGijs"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/afbeeldingindriespeurtocht" />
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/speurtocht"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:textSize="16sp"
+                    android:text="@string/onderschriftSpeurtocht" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageButton
+                        android:id="@+id/imageButton2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginTop="-8dp"
+                        android:layout_marginBottom="-8dp"
+                        android:background="@null"
+                        android:onClick="stamboomactivity"
+                        android:src="@drawable/witteknop"
+                        android:contentDescription="@string/HolleBolleGijs"
+                        android:scaleType="fitCenter"
+                        android:layout_centerInParent="true"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/knopSpeurtocht"
+                        android:textStyle="bold"
+                        android:textSize="17sp"
+                        android:layout_centerInParent="true"/>
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
     </ScrollView>
-
-
+    <ImageView
+        android:id="@+id/imageViewMenu"
+        android:contentDescription="@string/HolleBolleGijs"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:src="@drawable/menu"
+        android:scaleType="fitXY"
+        android:onClick="mainactivity"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+

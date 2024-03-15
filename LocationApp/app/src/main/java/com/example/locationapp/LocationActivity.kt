@@ -1,5 +1,6 @@
 package com.example.locationapp
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.res.Resources
 import android.location.GpsStatus
@@ -27,6 +28,7 @@ class LocationActivity: AppCompatActivity(), MapListener, GpsStatus.Listener  {
     private lateinit var controller: IMapController
     private lateinit var mMyLocationOverlay: MyLocationNewOverlay
 
+    @SuppressLint("DiscouragedApi")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_location)
@@ -42,30 +44,32 @@ class LocationActivity: AppCompatActivity(), MapListener, GpsStatus.Listener  {
         // Set map tile source
         mMap.setTileSource(TileSourceFactory.MAPNIK)
 
-
+        // Custom marker
         val gson = Gson()
         val locations:Array<Location> = gson.fromJson(ReadJSONFromAssets(baseContext, "locations.json"),
             Array<Location>::class.java)
 
         for (location in locations) {
-            var geoPoint = org.osmdroid.util.GeoPoint(location.latitude, location.longitude) // Replace with desired coordinates
+            var geoPoint = org.osmdroid.util.GeoPoint(location.latitude, location.longitude)
             var marker = Marker(mMap)
             marker.position = geoPoint
-            // Custom marker
-            var iconResId = location.image
-            if (iconResId != 0) {
-                try {
-                    val drawable = ContextCompat.getDrawable(this, iconResId)
+
+            val fileName = location.data
+            val iconResId = resources.getIdentifier(fileName, "drawable", packageName)
+
+            try {
+                val drawable = ContextCompat.getDrawable(this, iconResId)
+                if (drawable != null) {
                     marker.icon = drawable
-                } catch (e: Resources.NotFoundException) {
-                    Log.e("TAG", "Resource not found: $iconResId", e)
+                } else {
+                    Log.e("TAG", "Drawable resource is null for file: $fileName")
                     marker.icon = ContextCompat.getDrawable(this, R.drawable.marker_icon)
                 }
-            } else {
+            } catch (e: Resources.NotFoundException) {
+                Log.e("TAG", "Resource not found for file: $fileName", e)
                 marker.icon = ContextCompat.getDrawable(this, R.drawable.marker_icon)
             }
 
-//            marker.icon = ContextCompat.getDrawable(this, R.drawable.marker_icon) // Replace with your icon resource ID
             marker.title = location.naam
             marker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_CENTER)
             mMap.overlays.add(marker)
