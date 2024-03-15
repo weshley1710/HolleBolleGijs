@@ -5,6 +5,5 @@ data class Location(
     val naam: String,
     val longitude: Double,
     val latitude: Double,
-    val image: Int,
     val data: String
 )
