@@ -6,4 +6,5 @@
     </style>
 
     <style name="Theme.LocationApp" parent="Base.Theme.LocationApp" />
+
 </resources>

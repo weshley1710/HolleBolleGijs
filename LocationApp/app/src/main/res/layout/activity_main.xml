@@ -65,4 +65,14 @@
         app:layout_constraintVertical_bias="0.84"
         android:contentDescription="@string/HolleBolleGijs" />
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="starttouractivity"
+        android:text="Button"
+
+        tools:layout_editor_absoluteX="154dp"
+        tools:layout_editor_absoluteY="129dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
