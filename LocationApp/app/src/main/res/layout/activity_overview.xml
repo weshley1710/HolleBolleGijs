@@ -225,6 +225,7 @@
         android:layout_height="60dp"
         android:src="@drawable/menu"
         android:scaleType="fitXY"
+        android:onClick="mainactivity"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
