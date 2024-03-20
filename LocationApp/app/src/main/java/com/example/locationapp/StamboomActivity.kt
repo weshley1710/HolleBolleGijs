@@ -17,23 +17,23 @@ class StamboomActivity : AppCompatActivity() {
     }
 
     fun overviewactivity(view: View) {
-        println("overzicht werkt")
         startActivity(Intent(this, OverviewActivity::class.java))
     }
 
     fun locationactivity(view: View) {
-        println("overzicht werkt")
         startActivity(Intent(this, LocationActivity::class.java))
     }
 
     fun helpactivity(view: View) {
-        println("help werkt")
         startActivity(Intent(this, HelpActivity::class.java))
     }
 
     fun infoactivity(view: View) {
-        println("info werkt")
         startActivity(Intent(this, InfoActivity::class.java))
+    }
+
+    fun beloningactivity(view: View) {
+        startActivity(Intent(this, BeloningActivity::class.java))
     }
 
     // counter Holle Bolle Gijs //
@@ -60,6 +60,20 @@ class StamboomActivity : AppCompatActivity() {
 
     private val handler = Handler(Looper.getMainLooper())
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_stamboom)
+        imageViewStamboom = findViewById(R.id.imageviewstamboom)
+        textViewUnsolved = findViewById(R.id.counterhbgunsolved)
+        textViewSolved = findViewById(R.id.counterhbgsolved)
+        imagebuttonUnsolved = findViewById(R.id.unsolvedimagebutton)
+        imagebuttonSolved = findViewById(R.id.solvedimagebutton)
+        imagebuttonSolved.visibility = View.GONE
+        textViewSolved.visibility = View.GONE
+        updateText(currentValue, totalValue)
+        handler.postDelayed(timerRunnable, 1000)
+    }
+
     private val timerRunnable = object : Runnable {
         override fun run() {
             if (currentValue < totalValue) {
@@ -83,24 +97,9 @@ class StamboomActivity : AppCompatActivity() {
         }
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_stamboom)
-        imageViewStamboom = findViewById(R.id.imageviewstamboom)
-        textViewUnsolved = findViewById(R.id.counterhbgunsolved)
-        textViewSolved = findViewById(R.id.counterhbgsolved)
-        imagebuttonUnsolved = findViewById(R.id.unsolvedimagebutton)
-        imagebuttonSolved = findViewById(R.id.solvedimagebutton)
-        imagebuttonSolved.visibility = View.GONE
-        textViewSolved.visibility = View.GONE
-        updateText(currentValue, totalValue)
-        handler.postDelayed(timerRunnable, 1000)
-    }
-
     private fun updateText(current: Int, total: Int) {
         val counterText = getString(R.string.counter_text, current, total)
         textViewUnsolved.text = counterText
-        textViewSolved.text = counterText
 
         if (current in imageIds.indices) {
             val imageId = imageIds[current]

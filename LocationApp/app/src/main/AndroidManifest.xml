@@ -33,6 +33,7 @@
         <activity android:name=".StarttourActivity" />
         <activity android:name=".HelpActivity" />
         <activity android:name=".InfoActivity" />
+        <activity android:name=".BeloningActivity" />
     </application>
 
 </manifest>

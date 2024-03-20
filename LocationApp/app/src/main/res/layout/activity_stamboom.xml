@@ -141,6 +141,7 @@
                     android:layout_marginBottom="-8dp"
                     android:background="@null"
                     android:src="@drawable/rodeknop"
+                    android:onClick="beloningactivity"
                     android:contentDescription="@string/HolleBolleGijs"
                     android:scaleType="fitCenter"
                     android:layout_centerInParent="true"/>
@@ -149,15 +150,19 @@
                     android:id="@+id/counterhbgunsolved"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="16sp"
+                    android:textSize="17sp"
                     android:textColor="@android:color/black"
+                    android:textStyle="bold"
                     android:layout_centerInParent="true"/>
 
                 <TextView
                     android:id="@+id/counterhbgsolved"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="16sp"
+                    android:onClick="beloningactivity"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:text="@string/voltooiStamboom"
                     android:textColor="@android:color/white"
                     android:layout_centerInParent="true"/>
 
@@ -173,8 +178,6 @@
                 android:gravity="center"
                 android:textColor="@color/redtextbutton"
                 android:onClick="locationactivity" />
-
-
 
         </LinearLayout>
     </ScrollView>
