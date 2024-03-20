@@ -7,10 +7,10 @@
     android:background="@color/achtergrondapp">
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnOk"
         android:layout_width="251dp"
         android:layout_height="41dp"
-        android:text="Start Tour"
+        android:text="@string/startspeurtocht"
         app:backgroundTint="@color/redefteling1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,6 +37,8 @@
         tools:layout_editor_absoluteX="4dp"
         tools:layout_editor_absoluteY="66dp" />
 
+
+
     <ImageButton
         android:id="@+id/imageButton3"
         android:layout_width="wrap_content"
@@ -51,4 +53,3 @@
         app:srcCompat="@drawable/arrow" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
