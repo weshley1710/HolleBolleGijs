@@ -31,6 +31,8 @@
         <activity android:name=".OverviewActivity" />
         <activity android:name=".StamboomActivity" />
         <activity android:name=".StarttourActivity" />
+        <activity android:name=".HelpActivity" />
+        <activity android:name=".InfoActivity" />
     </application>
 
 </manifest>
