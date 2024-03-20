@@ -3,10 +3,10 @@
     <string name="title_activity_maps">MapsActivity</string>
     <string name="start">Start Holle Bolle Gijs Tour</string>
 
-    <!-- standaard descriptie -->
+    <!-- standard description -->
     <string name="HolleBolleGijs">Holle Bolle Gijs</string>
 
-    <!-- activity_overview   -->
+    <!-- activity_overview -->
     <string name="entoen">En toen…</string>
     <string name="vervolgEntoen">Holle Bolle Gijs werd prijsgegeven</string>
     <string name="titelOverzicht">Holle Bolle Gijs</string>
@@ -23,5 +23,12 @@
     <string name="gaverder">Verder</string>
     <string name="terug">Terug</string>
 
+
+    <!-- activity_stamboom -->
+    <string name="titelStamboom">Stamboom Holle Bolle Gijs</string>
+    <string name="onderschriftStamboom">Verzamel al de bekende familieleden!</string>
+    <string name="hollebollegijsmap">Holle Bolle Gijs kaart</string>
+    <string name="counter_text">Current: %1$d / %2$d</string>
+    <string name="titelSpeurtocht">Speurtocht</string>
 
 </resources>

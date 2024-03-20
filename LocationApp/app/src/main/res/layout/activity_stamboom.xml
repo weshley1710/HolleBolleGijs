@@ -3,16 +3,192 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/backgroundcolor" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/bordertoppages"
+            android:id="@+id/whiteTopBar"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/titelSpeurtocht"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:layout_centerInParent="true"
+            tools:ignore="RelativeOverlap" />
+
+        <ImageView
+            android:id="@+id/backbutton"
+            android:layout_width="14dp"
+            android:layout_height="24dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="16dp"
+            android:layout_centerVertical="true"
+            android:onClick="overviewactivity"
+            android:contentDescription="@string/HolleBolleGijs"
+            android:src="@drawable/arrowback" />
+
+        <ImageView
+            android:id="@+id/helpbutton"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@drawable/help"
+            android:onClick="helpactivity"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="16dp"
+            android:layout_centerVertical="true"
+            android:contentDescription="@string/HolleBolleGijs" />
+
+        <ImageView
+            android:id="@+id/infobutton"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@drawable/info"
+            android:onClick="infoactivity"
+            android:layout_toStartOf="@id/helpbutton"
+            android:layout_marginEnd="16dp"
+            android:layout_centerVertical="true"
+            android:contentDescription="@string/HolleBolleGijs" />
+
+    </RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="60dp"
+        android:layout_marginTop="60dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="318dp"
+                android:layout_height="327dp"
+                android:layout_marginTop="84dp"
+                android:layout_gravity="center"
+                android:contentDescription="@string/HolleBolleGijs"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.494"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/stamboomgijsstart" />
+
+            <TextView
+                android:id="@+id/textViewTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/titelStamboom"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textViewContent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:text="@string/onderschriftStamboom"
+                android:gravity="center"
+                android:textSize="16sp" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/unsolvedimagebutton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginTop="-8dp"
+                    android:layout_marginBottom="-8dp"
+                    android:background="@null"
+                    android:src="@drawable/grijzeknop"
+                    android:contentDescription="@string/HolleBolleGijs"
+                    android:scaleType="fitCenter"
+                    android:layout_centerInParent="true"/>
+
+                <ImageButton
+                    android:id="@+id/solvedimagebutton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginTop="-8dp"
+                    android:layout_marginBottom="-8dp"
+                    android:background="@null"
+                    android:src="@drawable/rodeknop"
+                    android:contentDescription="@string/HolleBolleGijs"
+                    android:scaleType="fitCenter"
+                    android:layout_centerInParent="true"/>
+
+                <TextView
+                    android:id="@+id/counterhbgunsolved"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/black"
+                    android:layout_centerInParent="true"/>
+
+                <TextView
+                    android:id="@+id/counterhbgsolved"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/white"
+                    android:layout_centerInParent="true"/>
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/hollebollegijsmap"
+                android:textStyle="bold"
+                android:textSize="17sp"
+                android:gravity="center"
+                android:textColor="@color/redtextbutton"
+                android:onClick="stamboomactivity" />
+
+
+
+        </LinearLayout>
+    </ScrollView>
 
     <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="318dp"
-        android:layout_height="327dp"
-        android:layout_marginTop="84dp"
+        android:id="@+id/imageViewMenu"
+        android:contentDescription="@string/HolleBolleGijs"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:src="@drawable/menu"
+        android:scaleType="fitXY"
+        android:onClick="mainactivity"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/stamboomgijsstart" />
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
