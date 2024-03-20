@@ -32,7 +32,7 @@ class LocationActivity: AppCompatActivity(), MapListener, GpsStatus.Listener  {
     private lateinit var mMap: MapView
     private lateinit var controller: IMapController
     private lateinit var mMyLocationOverlay: MyLocationNewOverlay
-    private lateinit var mSocket: Socket // Use lateinit to avoid potential null issues
+    private lateinit var mSocket: Socket  // Use lateinit to avoid potential null issues
 
     @SuppressLint("DiscouragedApi")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,10 +43,11 @@ class LocationActivity: AppCompatActivity(), MapListener, GpsStatus.Listener  {
         try {
             mSocket = IO.socket("https://9c4793a3-aa33-4e20-b262-a577c59ab5ed-00-1hbimrom5u2be.worf.replit.dev/")
             mSocket.connect()
-            mSocket.emit("message","Max")
-            println("data send")
+
+            // Send a name to the server
+            mSocket.emit("message", "John from Android")
         } catch (e: URISyntaxException) {
-            e.printStackTrace()
+            e.printStackTrace() // Handle the exception (e.g., display an error message)
         }
         // Load Osmdroid configuration
         Configuration.getInstance().load(this.applicationContext, getSharedPreferences(getString(R.string.app_name),
@@ -105,6 +106,8 @@ class LocationActivity: AppCompatActivity(), MapListener, GpsStatus.Listener  {
                 controller.animateTo(mMyLocationOverlay.myLocation)
             }
         }
+
+//         controller.animateTo(mapPoint)
         mMap.overlays.add(mMyLocationOverlay)
     }
 

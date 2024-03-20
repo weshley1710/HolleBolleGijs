@@ -16,6 +16,7 @@ fragment = "1.6.2"
 googleAndroidLibrariesMapsplatformSecretsGradlePlugin = "2.0.1"
 osmbonuspack = "6.9.0"
 engineIoClient = "2.1.0"
+socketIoClient = "2.1.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -32,6 +33,7 @@ play-services-maps = { group = "com.google.android.gms", name = "play-services-m
 androidx-fragment = { group = "androidx.fragment", name = "fragment", version.ref = "fragment" }
 osmbonuspack = { group = "com.github.MKergall", name = "osmbonuspack", version.ref = "osmbonuspack" }
 engine-io-client = { group = "io.socket", name = "engine.io-client", version.ref = "engineIoClient" }
+socket-io-client = { group = "io.socket", name = "socket.io-client", version.ref = "socketIoClient" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

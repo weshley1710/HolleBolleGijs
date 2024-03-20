@@ -50,6 +50,7 @@ dependencies {
     implementation(libs.play.services.maps)
     implementation(libs.androidx.fragment)
     implementation(libs.engine.io.client)
+    implementation(libs.socket.io.client)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
