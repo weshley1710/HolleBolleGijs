@@ -16,27 +16,41 @@ import org.osmdroid.events.MapListener
 import org.osmdroid.events.ScrollEvent
 import org.osmdroid.events.ZoomEvent
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory
+import org.osmdroid.util.GeoPoint
 import org.osmdroid.views.MapView
 import org.osmdroid.views.overlay.Marker
 import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider
 import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay
 import java.io.BufferedReader
 import java.io.InputStreamReader
+import java.net.URISyntaxException
+import io.socket.client.IO
+import io.socket.client.Socket
 
 class LocationActivity: AppCompatActivity(), MapListener, GpsStatus.Listener  {
 
     private lateinit var mMap: MapView
     private lateinit var controller: IMapController
     private lateinit var mMyLocationOverlay: MyLocationNewOverlay
+    private lateinit var mSocket: Socket // Use lateinit to avoid potential null issues
 
     @SuppressLint("DiscouragedApi")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_location)
 
+        // Socket Connection
+        try {
+            mSocket = IO.socket("https://9c4793a3-aa33-4e20-b262-a577c59ab5ed-00-1hbimrom5u2be.worf.replit.dev/")
+            mSocket.connect()
+            mSocket.emit("message","Max")
+            println("data send")
+        } catch (e: URISyntaxException) {
+            e.printStackTrace()
+        }
         // Load Osmdroid configuration
         Configuration.getInstance().load(this.applicationContext, getSharedPreferences(getString(R.string.app_name),
-            AppCompatActivity.MODE_PRIVATE
+            MODE_PRIVATE
         ))
 
         // Obtain MapView reference
@@ -51,7 +65,7 @@ class LocationActivity: AppCompatActivity(), MapListener, GpsStatus.Listener  {
             Array<Location>::class.java)
 
         for (location in locations) {
-            var geoPoint = org.osmdroid.util.GeoPoint(location.latitude, location.longitude)
+            var geoPoint = GeoPoint(location.latitude, location.longitude)
             var marker = Marker(mMap)
             marker.position = geoPoint
 
@@ -91,9 +105,6 @@ class LocationActivity: AppCompatActivity(), MapListener, GpsStatus.Listener  {
                 controller.animateTo(mMyLocationOverlay.myLocation)
             }
         }
-
-
-        // controller.animateTo(mapPoint)
         mMap.overlays.add(mMyLocationOverlay)
     }
 
@@ -102,7 +113,7 @@ class LocationActivity: AppCompatActivity(), MapListener, GpsStatus.Listener  {
         val mapController = mMap.controller
 
         // Create GeoPoint for map center
-        val mapCenter = org.osmdroid.util.GeoPoint(latitude, longitude)
+        val mapCenter = GeoPoint(latitude, longitude)
 
         // Set map center and zoom level
         mapController.setCenter(mapCenter)
@@ -126,7 +137,10 @@ class LocationActivity: AppCompatActivity(), MapListener, GpsStatus.Listener  {
     override fun onGpsStatusChanged(event: Int) {
     }
 
-
+    override fun onDestroy() {
+        super.onDestroy()
+        mSocket.disconnect()
+    }
     fun ReadJSONFromAssets(context: Context, path: String): String {
         val identifier = "[ReadJSON]"
         try {

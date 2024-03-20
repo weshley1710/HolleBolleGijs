@@ -39,7 +39,6 @@ android {
     }
 }
 dependencies {
-//    implementation("java.io.File")
     implementation(libs.gson)
     implementation(libs.osmbonuspack)
     implementation(libs.osmdroid.android)
@@ -50,6 +49,7 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.play.services.maps)
     implementation(libs.androidx.fragment)
+    implementation(libs.engine.io.client)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
