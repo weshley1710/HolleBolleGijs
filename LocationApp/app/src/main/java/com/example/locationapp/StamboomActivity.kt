@@ -15,6 +15,21 @@ class StamboomActivity : AppCompatActivity() {
         startActivity(Intent(this, MainActivity::class.java))
     }
 
+    fun overviewactivity(view: View) {
+        println("overzicht werkt")
+        startActivity(Intent(this, OverviewActivity::class.java))
+    }
+
+    fun helpactivity(view: View) {
+        println("help werkt")
+        startActivity(Intent(this, HelpActivity::class.java))
+    }
+
+    fun infoactivity(view: View) {
+        println("info werkt")
+        startActivity(Intent(this, InfoActivity::class.java))
+    }
+
     // counter quantity Holle Bolle Gijs //
     private lateinit var textViewUnsolved: TextView
     private lateinit var textViewSolved: TextView
