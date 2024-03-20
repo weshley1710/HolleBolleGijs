@@ -21,5 +21,9 @@ class MainActivity : AppCompatActivity() {
     fun overviewactivity(view: View) {
         startActivity(Intent(this, OverviewActivity::class.java))
     }
+
+    fun starttouractivity(view: View) {
+        startActivity(Intent(this, StarttourActivity::class.java))
+    }
 }
 
