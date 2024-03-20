@@ -80,10 +80,10 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/imageView5"
+                android:id="@+id/imageviewstamboom"
                 android:layout_width="318dp"
                 android:layout_height="327dp"
-                android:layout_marginTop="84dp"
+                android:layout_marginTop="24dp"
                 android:layout_gravity="center"
                 android:contentDescription="@string/HolleBolleGijs"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -172,7 +172,7 @@
                 android:textSize="17sp"
                 android:gravity="center"
                 android:textColor="@color/redtextbutton"
-                android:onClick="stamboomactivity" />
+                android:onClick="locationactivity" />
 
 
 
