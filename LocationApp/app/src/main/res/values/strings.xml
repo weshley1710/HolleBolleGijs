@@ -47,4 +47,11 @@
         3. Visje Gijs is omgetoverd tot een ornament en houd nu de wensbron dag en nacht in de gaten.\n
         Daarom krijgt u deze familieleden cadeau.</string>
 
+    <!-- activity_beloning -->
+    <string name="infobeloning">Avonturiers, wat hebben jullie het goed gedaan! Alle familieleden zijn gevonden en de stamboom is compleet.\n\n
+        De bijbehorende beloning ligt voor jullie klaar. Deze is op te halen bij de uitgang van het park.\n\n
+        Gebruik de onderstaande code om uw beloning in ontvangst te nemen.
+    </string>
+    <string name="codeweergeven">Geef code weer</string>
+
 </resources>
