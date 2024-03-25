@@ -26,6 +26,12 @@ import java.io.InputStreamReader
 import java.net.URISyntaxException
 import io.socket.client.IO
 import io.socket.client.Socket
+import kotlin.math.PI
+import kotlin.math.atan2
+import kotlin.math.cos
+import kotlin.math.pow
+import kotlin.math.sin
+import kotlin.math.sqrt
 
 class LocationActivity: AppCompatActivity(), MapListener, GpsStatus.Listener  {
 
@@ -45,7 +51,7 @@ class LocationActivity: AppCompatActivity(), MapListener, GpsStatus.Listener  {
             mSocket.connect()
 
             // Send a name to the server
-            mSocket.emit("message", "John from Android")
+            mSocket.emit("message", "Max")
         } catch (e: URISyntaxException) {
             e.printStackTrace() // Handle the exception (e.g., display an error message)
         }
@@ -97,20 +103,68 @@ class LocationActivity: AppCompatActivity(), MapListener, GpsStatus.Listener  {
         mMyLocationOverlay = MyLocationNewOverlay(GpsMyLocationProvider(this), mMap)
         controller = mMap.controller
 
+        // Enable location overlay and set properties
         mMyLocationOverlay.enableMyLocation()
         mMyLocationOverlay.enableFollowLocation()
         mMyLocationOverlay.isDrawAccuracyEnabled = true
+
+        // Center map on user location when the first fix is received
         mMyLocationOverlay.runOnFirstFix {
             runOnUiThread {
-                controller.setCenter(mMyLocationOverlay.myLocation);
-                controller.animateTo(mMyLocationOverlay.myLocation)
+                val userLocation = mMyLocationOverlay.myLocation
+                if (userLocation != null) {
+                    val userGeoPoint = GeoPoint(userLocation.latitude, userLocation.longitude)
+                    println("Latitude: ${userLocation.latitude}, Longitude: ${userLocation.longitude}")
+                    controller.setCenter(userGeoPoint)
+                    controller.animateTo(userGeoPoint)
+                } else {
+                    // Handle the case where user location is null
+                    println("User location is null")
+                }
             }
         }
+        //#TODO User location fetch problem!
+        val userLocation = GeoPoint(51.647609, 5.049018)
+        println("Location: $userLocation")
+        if (userLocation != null) {
+            val userGeoPoint = GeoPoint(userLocation.latitude, userLocation.longitude)
+            println(userGeoPoint)
+            val thresholdDistance = 100 // Threshold distance in meters
 
-//         controller.animateTo(mapPoint)
+            for (location in locations) {
+                val markerLocation = GeoPoint(location.latitude, location.longitude)
+                val distance = calculateDistance(userLocation, markerLocation)
+                println("${location.naam}: $distance meters")
+                if (distance < thresholdDistance) {
+                    println("User is close to marker at Lat: ${location.latitude}, Long: ${location.longitude}")
+                    // Perform actions when user is close to marker
+                }
+            }
+        } else {
+            // Handle the case where user location is null
+            println("User location is null")
+        }
+
+        // Add location overlay to map
         mMap.overlays.add(mMyLocationOverlay)
     }
+    private fun calculateDistance(location1: GeoPoint?, location2: GeoPoint): Double {
+        if (location1 == null) return Double.MAX_VALUE
 
+        val lat1 = location1.latitude * PI / 180
+        val lon1 = location1.longitude * PI / 180
+        val lat2 = location2.latitude * PI / 180
+        val lon2 = location2.longitude * PI / 180
+
+        val dlon = lon2 - lon1
+        val dlat = lat2 - lat1
+
+        val a = sin(dlat / 2).pow(2) + cos(lat1) * cos(lat2) * sin(dlon / 2).pow(2)
+        val c = 2 * atan2(sqrt(a), sqrt(1 - a))
+
+        val earthRadius = 6371000 // Radius of the Earth in meters
+        return earthRadius * c
+    }
     fun centerMapOnPosition(latitude: Double, longitude: Double, zoomLevel: Double) {
         // Retrieve map controller
         val mapController = mMap.controller
