@@ -37,14 +37,15 @@
 
         <ImageView
             android:id="@+id/backbutton"
-            android:layout_width="14dp"
-            android:layout_height="24dp"
+            android:layout_width="6dp"
+            android:layout_height="16dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="16dp"
             android:layout_centerVertical="true"
-            android:onClick="overviewactivity"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="26dp"
             android:contentDescription="@string/HolleBolleGijs"
+            android:onClick="overviewactivity"
             android:src="@drawable/arrowback" />
 
 
@@ -86,12 +87,30 @@
         android:layout_gravity="center"
         android:text="@string/startspeurtocht"
         android:textColor="@color/white"
-        android:textSize="30sp"
+        android:textSize="17sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/starttourimagebutton"
+        android:layout_centerInParent="true"
+    app:layout_constraintBottom_toBottomOf="@+id/starttourimagebutton"
         app:layout_constraintEnd_toEndOf="@+id/starttourimagebutton"
         app:layout_constraintStart_toStartOf="@+id/starttourimagebutton"
         app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:onClick="locationactivity"
+        android:text="@string/privacy"
+        android:textColor="@color/redtextbutton"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
+        app:layout_constraintVertical_bias="0.875" />
 
     <ImageButton
         android:id="@+id/imageButton3"
@@ -105,5 +124,18 @@
         app:srcCompat="@drawable/arrow"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/imageViewMenu"
+        android:contentDescription="@string/HolleBolleGijs"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:src="@drawable/menu"
+        android:scaleType="fitXY"
+        android:onClick="mainactivity"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
