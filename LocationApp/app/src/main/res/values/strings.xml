@@ -17,6 +17,12 @@
     <string name="speurtocht">Speurtocht</string>
     <string name="onderschriftSpeurtocht">Bereid je voor op een reis vol verrassingen en ontdekkingen terwijl jullie door het magische landschap zullen dwalen. Bezoek de gehele familie en wordt beloond door de ontdekkingsexperts van de Efteling.</string>
     <string name="knopSpeurtocht">Jouw verzameling</string>
+    <string name="startspeurtocht">Start Tour</string>
+    <string name="vulnamenin">Vul namen in</string>
+    <string name="vulnaamin">Vul je naam in</string>
+    <string name="gaverder">Verder</string>
+    <string name="terug">Terug</string>
+
 
     <!-- activity_stamboom -->
     <string name="titelStamboom">Stamboom Holle Bolle Gijs</string>
