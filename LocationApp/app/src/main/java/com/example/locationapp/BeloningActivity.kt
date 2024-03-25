@@ -50,6 +50,11 @@ class BeloningActivity : AppCompatActivity(){
                 overlay.visibility = View.GONE
             }
 
+            popupWindow.setOnDismissListener {
+                val intent = Intent(this@BeloningActivity, OverviewActivity::class.java)
+                startActivity(intent)
+            }
+
             closeButton.setOnClickListener {
                 popupWindow.dismiss()
             }

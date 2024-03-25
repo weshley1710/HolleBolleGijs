@@ -18,6 +18,14 @@ import androidx.core.content.ContextCompat
 
 class StarttourActivity : AppCompatActivity() {
 
+    fun overviewactivity(view: View) {
+        startActivity(Intent(this, OverviewActivity::class.java))
+    }
+
+    fun mainactivity(view: View) {
+        startActivity(Intent(this, MainActivity::class.java))
+    }
+
     @SuppressLint("MissingInflatedId", "InflateParams")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
