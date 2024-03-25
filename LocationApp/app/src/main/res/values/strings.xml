@@ -26,4 +26,32 @@
     <string name="counter_text">%1$d / %2$d</string>
     <string name="titelSpeurtocht">Speurtocht</string>
 
+    <!-- activity_help -->
+    <string name="uitlegstamboom">Goedendag avonturiers!\n
+        De speurtocht naar Holle Bolle Gijs werkt als volgt:\n
+        1. Loop door het park en geniet van uw bezoek.\n
+        2. Terwijl u rondloopt zullen enkele familieleden van Holle Bolle Gijs op uw pad bevinden.\n
+        3. Bezoek en benuttig deze papiersmullers.\n
+        4. In de app zal automatisch elk ontdekte familielid worden weergegeven zodra u deze bezocht heeft.\n
+        5. Na het voltooien van de stamboom ligt er een beloning op u te wachten.
+    </string>
+    <string name="privacyverklaring">Privacyregelgeving</string>
+    <string name="verzamelStamboom">Verzamel stamboom</string>
+
+    <!-- activity_info -->
+    <string name="verzamelstamboom">Verzamel stamboom</string>
+    <string name="infostamboom">Voordat we beginnen!\n
+        Enkele familieleden uit de stamboom van Holle Bolle Gijs hebben gedurende de jaren een functie elders gekregen:\n
+        1. Matroos Gijs is sinds de bouw van de Danse Macabre weer op reis gegaan en vetrokken uit de Efteling.\n
+        2. Station Gijs bevind zich momenteel op het sprookjesstation en wacht op de trein.\n
+        3. Visje Gijs is omgetoverd tot een ornament en houd nu de wensbron dag en nacht in de gaten.\n
+        Daarom krijgt u deze familieleden cadeau.</string>
+
+    <!-- activity_beloning -->
+    <string name="infobeloning">Avonturiers, wat hebben jullie het goed gedaan! Alle familieleden zijn gevonden en de stamboom is compleet.\n\n
+        De bijbehorende beloning ligt voor jullie klaar. Deze is op te halen bij de uitgang van het park.\n\n
+        Gebruik de onderstaande code om uw beloning in ontvangst te nemen.
+    </string>
+    <string name="codeweergeven">Geef code weer</string>
+
 </resources>
