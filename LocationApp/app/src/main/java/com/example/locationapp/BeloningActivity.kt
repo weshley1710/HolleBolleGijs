@@ -27,6 +27,7 @@ class BeloningActivity : AppCompatActivity(){
         setContentView(R.layout.activity_beloning)
 
         val codeWeergevenButton = findViewById<ImageButton>(R.id.redbutton)
+        val overlay = findViewById<View>(R.id.overlay)
 
         codeWeergevenButton.setOnClickListener {
             val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
@@ -40,8 +41,14 @@ class BeloningActivity : AppCompatActivity(){
                 WindowManager.LayoutParams.WRAP_CONTENT
             )
 
+            overlay.visibility = View.VISIBLE
+
             popupWindow.isFocusable = true
             popupWindow.showAtLocation(popupView, Gravity.BOTTOM, 0, 0)
+
+            popupWindow.setOnDismissListener {
+                overlay.visibility = View.GONE
+            }
 
             closeButton.setOnClickListener {
                 popupWindow.dismiss()
