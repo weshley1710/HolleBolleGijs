@@ -13,17 +13,8 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    // TODO:  Blijf van deze knop AF!!!! met je vieze visvingers!!!!
-    fun startactivity(view: View) {
-        startActivity(Intent(this, LocationActivity::class.java))
-    }
-
     fun overviewactivity(view: View) {
         startActivity(Intent(this, OverviewActivity::class.java))
-    }
-
-    fun starttouractivity(view: View) {
-        startActivity(Intent(this, StarttourActivity::class.java))
     }
 }
 
