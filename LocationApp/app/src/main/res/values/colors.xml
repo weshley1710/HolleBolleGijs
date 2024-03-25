@@ -9,6 +9,7 @@
 
     <!-- background color -->
     <color name="backgroundcolor">#FAFBF6</color>
+    <color name="popupcolor">#E4EFBB</color>
     <color name="achtergrondapp">#FAFBF6</color>
 
     <!-- red textbutton (no imagebutton) -->
@@ -18,5 +19,7 @@
     <color name="redefteling1">#B71234</color>
     <color name="redefteling2">#9F0D2B</color>
     <color name="transparent">#00FFFFFF</color>
+    <color name="bordercolor">#D2BD9C</color>
+    <color name="goudefteling">#D2BD9C</color>
 
 </resources>
