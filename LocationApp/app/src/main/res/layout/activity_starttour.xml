@@ -63,7 +63,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/relativeLayout"
-        app:srcCompat="@drawable/schermtour" />
+        app:srcCompat="@drawable/schermtour"
+        android:contentDescription="@string/HolleBolleGijs" />
 
     <ImageButton
         android:id="@+id/starttourimagebutton"
@@ -123,7 +124,8 @@
         android:elevation="8dp"
         app:srcCompat="@drawable/arrow"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/HolleBolleGijs" />
 
 
     <ImageView
@@ -137,5 +139,12 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#80000000"
+        android:visibility="gone" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

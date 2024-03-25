@@ -8,7 +8,6 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
-import android.widget.Button
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.ImageButton
@@ -25,6 +24,7 @@ class StarttourActivity : AppCompatActivity() {
         setContentView(R.layout.activity_starttour)
 
         val startTourButton = findViewById<ImageButton>(R.id.starttourimagebutton)
+        val overlay = findViewById<View>(R.id.overlay)
 
         startTourButton.setOnClickListener {
             val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
@@ -32,12 +32,15 @@ class StarttourActivity : AppCompatActivity() {
 
             val btnAddEditText = popupView.findViewById<ImageButton>(R.id.imageButton4)
 
+            val closeButton = popupView.findViewById<ImageButton>(R.id.btnOk)
+
             val popupWindow = PopupWindow(
                 popupView,
                 WindowManager.LayoutParams.MATCH_PARENT,
                 WindowManager.LayoutParams.WRAP_CONTENT
             )
 
+            overlay.visibility = View.VISIBLE
 
             btnAddEditText.setOnClickListener {
                 val newEditText = EditText(this@StarttourActivity)
@@ -68,6 +71,19 @@ class StarttourActivity : AppCompatActivity() {
 
             popupWindow.isFocusable = true
             popupWindow.showAtLocation(popupView, Gravity.BOTTOM, 0, 0)
+
+            popupWindow.setOnDismissListener {
+                overlay.visibility = View.GONE
+            }
+
+            popupWindow.setOnDismissListener {
+                val intent = Intent(this@StarttourActivity, OverviewActivity::class.java)
+                startActivity(intent)
+            }
+
+            closeButton.setOnClickListener {
+                popupWindow.dismiss()
+            }
         }
     }
 }
