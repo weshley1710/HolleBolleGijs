@@ -9,26 +9,28 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
 import android.widget.Button
+import android.view.ViewGroup
 import android.widget.EditText
+import android.widget.ImageButton
+import android.widget.LinearLayout
 import android.widget.PopupWindow
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 
 class StarttourActivity : AppCompatActivity() {
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_starttour) // Zorg ervoor dat de juiste layout wordt ingesteld
+        setContentView(R.layout.activity_starttour)
 
-        val popUpBtn = findViewById<Button>(R.id.btnOk)
-        val editTextName = findViewById<EditText>(R.id.editTextName)
-        val editTextName2 = findViewById<EditText>(R.id.edittextname2)
+        val startTourButton = findViewById<ImageButton>(R.id.starttourimagebutton)
 
-        popUpBtn.setOnClickListener { view ->
+        startTourButton.setOnClickListener {
             val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             val popupView = inflater.inflate(R.layout.input_name_layout, null)
 
-            val btnCancel = popupView.findViewById<Button>(R.id.button2)
+            val btnAddEditText = popupView.findViewById<ImageButton>(R.id.imageButton4)
 
             val popupWindow = PopupWindow(
                 popupView,
@@ -36,22 +38,36 @@ class StarttourActivity : AppCompatActivity() {
                 WindowManager.LayoutParams.WRAP_CONTENT
             )
 
-            popUpBtn.setOnClickListener {
-                val name1 = editTextName.text.toString()
-                val name2 = editTextName2.text.toString()
-                // Doe iets met de ingevoerde namen
 
-                // Voorbeeld: Start een nieuwe activity
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
+            btnAddEditText.setOnClickListener {
+                val newEditText = EditText(this@StarttourActivity)
+                newEditText.layoutParams = ViewGroup.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT
+                )
+                newEditText.background = ContextCompat.getDrawable(this@StarttourActivity, R.drawable.edittext_border)
+                newEditText.hint = getString(R.string.vulnaamin)
+
+                // Zoek de edittextname2 binnen de LinearLayout
+                val linearLayout = popupView.findViewById<LinearLayout>(R.id.linearLayout)
+                val existingEditText = linearLayout.findViewById<EditText>(R.id.edittextname2)
+
+                // Kopieer de layout eigenschappen van de bestaande EditText
+                newEditText.layoutParams = existingEditText.layoutParams
+                newEditText.background = existingEditText.background
+                newEditText.hint = existingEditText.hint
+
+                // Zoek de index van button4
+                val button4Index = linearLayout.indexOfChild(btnAddEditText)
+
+                // Voeg de nieuwe EditText toe vóór button4
+                linearLayout.addView(newEditText, button4Index)
             }
 
-            btnCancel.setOnClickListener {
-                // Sluit de popup
-                popupWindow.dismiss()
-            }
+
+
             popupWindow.isFocusable = true
-            popupWindow.showAtLocation(view, Gravity.BOTTOM, 0, 0)
+            popupWindow.showAtLocation(popupView, Gravity.BOTTOM, 0, 0)
         }
     }
 }
