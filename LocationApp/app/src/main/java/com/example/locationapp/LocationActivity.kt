@@ -6,6 +6,7 @@ import android.content.res.Resources
 import android.location.GpsStatus
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.example.locationapp.Models.Location
@@ -45,16 +46,6 @@ class LocationActivity: AppCompatActivity(), MapListener, GpsStatus.Listener  {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_location)
 
-        // Socket Connection
-        try {
-            mSocket = IO.socket("https://9c4793a3-aa33-4e20-b262-a577c59ab5ed-00-1hbimrom5u2be.worf.replit.dev/")
-            mSocket.connect()
-
-            // Send a name to the server
-            mSocket.emit("message", "Max")
-        } catch (e: URISyntaxException) {
-            e.printStackTrace() // Handle the exception (e.g., display an error message)
-        }
         // Load Osmdroid configuration
         Configuration.getInstance().load(this.applicationContext, getSharedPreferences(getString(R.string.app_name),
             MODE_PRIVATE
@@ -125,6 +116,9 @@ class LocationActivity: AppCompatActivity(), MapListener, GpsStatus.Listener  {
         }
         //#TODO User location fetch problem!
         val userLocation = GeoPoint(51.647609, 5.049018)
+
+//        val userLocation = mMyLocationOverlay.myLocation
+
         println("Location: $userLocation")
         if (userLocation != null) {
             val userGeoPoint = GeoPoint(userLocation.latitude, userLocation.longitude)
@@ -135,6 +129,11 @@ class LocationActivity: AppCompatActivity(), MapListener, GpsStatus.Listener  {
                 val markerLocation = GeoPoint(location.latitude, location.longitude)
                 val distance = calculateDistance(userLocation, markerLocation)
                 println("${location.naam}: $distance meters")
+                if(distance < 20) {
+                    println("sent request")
+                    // Socket Connection function
+                    sendData("Max", location.naam)
+                }
                 if (distance < thresholdDistance) {
                     println("User is close to marker at Lat: ${location.latitude}, Long: ${location.longitude}")
                     // Perform actions when user is close to marker
@@ -143,10 +142,24 @@ class LocationActivity: AppCompatActivity(), MapListener, GpsStatus.Listener  {
         } else {
             // Handle the case where user location is null
             println("User location is null")
+            val toast = Toast.makeText(this, "Locatie word niet opgehaald.", Toast.LENGTH_SHORT) // in Activity
+            toast.show()
         }
 
         // Add location overlay to map
         mMap.overlays.add(mMyLocationOverlay)
+    }
+
+    fun sendData(name: String, gijs: String) {
+        try {
+            mSocket = IO.socket("https://9c4793a3-aa33-4e20-b262-a577c59ab5ed-00-1hbimrom5u2be.worf.replit.dev/")
+            mSocket.connect()
+
+            // Send a name to the server
+            mSocket.emit("message", name, gijs)
+        } catch (e: URISyntaxException) {
+            e.printStackTrace() // Handle the exception (e.g., display an error message)
+        }
     }
     private fun calculateDistance(location1: GeoPoint?, location2: GeoPoint): Double {
         if (location1 == null) return Double.MAX_VALUE
