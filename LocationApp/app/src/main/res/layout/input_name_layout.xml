@@ -1,12 +1,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/linearLayout"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@drawable/rounded_corners_popup"
     android:orientation="vertical">
-
-
 
     <TextView
         android:id="@+id/textView3"
@@ -22,10 +19,14 @@
         android:layout_height="0dp"
         android:layout_weight="1">
 
+        <!-- LinearLayout geplaatst binnen de ScrollView -->
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <!-- EditText-velden blijven hetzelfde -->
 
             <EditText
                 android:id="@+id/editTextName"
@@ -36,8 +37,6 @@
                 android:background="@drawable/edittext_border"
                 android:hint="@string/vulnaamin"
                 android:padding="8dp" />
-
-            <!-- Leeg EditText voor dynamische toevoeging -->
 
             <EditText
                 android:id="@+id/edittextname2"
@@ -50,57 +49,56 @@
                 android:padding="8dp" />
 
             <EditText
-        android:id="@+id/extraEditText"
-        android:layout_width="300dp"
-        android:layout_height="40dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/edittext_border"
-        android:padding="8dp"
-        android:hint="@string/vulnaamin" />
+                android:id="@+id/extraEditText"
+                android:layout_width="300dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/edittext_border"
+                android:padding="8dp"
+                android:hint="@string/vulnaamin" />
 
+            <!-- ImageButton blijft hetzelfde -->
 
+            <ImageButton
+                android:id="@+id/imageButton4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                app:srcCompat="@drawable/arrow" />
 
+            <!-- RelativeLayout blijft hetzelfde -->
 
-    <ImageButton
-        android:id="@+id/imageButton4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
-        app:srcCompat="@drawable/arrow" />
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
-<RelativeLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content" >
+                <ImageButton
+                    android:id="@+id/btnOk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="78dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_centerInParent="true"
+                    android:background="@null"
+                    android:contentDescription="@string/HolleBolleGijs"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/rodeknop"
+                    android:text="@string/start"/>
 
-    <ImageButton
-        android:id="@+id/btnOk"
-        android:layout_width="wrap_content"
-        android:layout_height="78dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_centerInParent="true"
-        android:background="@null"
-        android:contentDescription="@string/HolleBolleGijs"
-        android:scaleType="fitCenter"
-        android:src="@drawable/rodeknop"
-        android:text="@string/start"/>
+                <TextView
+                    android:id="@+id/textViewTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/startspeurtocht"
+                    android:textColor="@color/white"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:layout_centerInParent="true"/>
 
-    <TextView
-        android:id="@+id/textViewTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/startspeurtocht"
-        android:textColor="@color/white"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:layout_centerInParent="true"/>
-
-
-
-</RelativeLayout>
+            </RelativeLayout>
         </LinearLayout>
-</ScrollView>
-    </LinearLayout>
+    </ScrollView>
+</LinearLayout>
