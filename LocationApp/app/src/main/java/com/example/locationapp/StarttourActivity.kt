@@ -59,6 +59,10 @@ class StarttourActivity : AppCompatActivity() {
                 newEditText.background = ContextCompat.getDrawable(this@StarttourActivity, R.drawable.edittext_border)
                 newEditText.hint = getString(R.string.vulnaamin)
 
+                // Voeg padding toe aan de nieuwe EditText
+                val paddingInPx = resources.getDimensionPixelSize(R.dimen.edittext_padding)
+                newEditText.setPadding(paddingInPx, paddingInPx, paddingInPx, paddingInPx)
+
                 // Zoek de edittextname2 binnen de LinearLayout
                 val linearLayout = popupView.findViewById<LinearLayout>(R.id.linearLayout)
                 val existingEditText = linearLayout.findViewById<EditText>(R.id.edittextname2)
