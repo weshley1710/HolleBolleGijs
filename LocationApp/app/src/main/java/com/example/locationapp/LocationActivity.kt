@@ -125,8 +125,8 @@ class LocationActivity: AppCompatActivity(), MapListener, GpsStatus.Listener  {
             }
         }
 
-        val userLocation = GeoPoint(51.647609, 5.049018)
-//        val userLocation = mMyLocationOverlay.myLocation
+//        val userLocation = GeoPoint(51.647609, 5.049018)
+        val userLocation = mMyLocationOverlay.myLocation
 
         val mainHandler = Handler(Looper.getMainLooper())
 
@@ -147,7 +147,6 @@ class LocationActivity: AppCompatActivity(), MapListener, GpsStatus.Listener  {
             Array<Location>::class.java)
 
         if (userLocation != null) {
-            val thresholdDistance = 100 // Threshold distance in meters
             val gijsRadius = 20
 
             for (location in locations) {
@@ -157,10 +156,9 @@ class LocationActivity: AppCompatActivity(), MapListener, GpsStatus.Listener  {
                 if(distance < gijsRadius) {
                     sendData("Ellie", location.naam)
                     // #TODO POP-UP message
-                }
-                if (distance < thresholdDistance) {
-                    println("User is close to the marker ${location.naam} at Lat: ${location.latitude}, Long: ${location.longitude}")
-                    // #TODO Peform actions to markers when user is under 100m away.
+                    val text = "Gefelicteerd je hebt ${location.naam} gevonden!"
+                    val toast = Toast.makeText(this, text, Toast.LENGTH_SHORT)
+                    toast.show()
                 }
             }
         } else {
