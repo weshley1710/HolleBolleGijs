@@ -6,6 +6,8 @@ import android.content.Intent
 import android.content.res.Resources
 import android.location.GpsStatus
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.View
 import android.widget.Toast
@@ -123,12 +125,17 @@ class LocationActivity: AppCompatActivity(), MapListener, GpsStatus.Listener  {
             }
         }
 
-        Timer().schedule(2000) {
-            val userLocation = GeoPoint(51.647609, 5.049018)
-//            val userLocation = mMyLocationOverlay.myLocation
-            println("Location: $userLocation")
-            checkLocation(userLocation)
-        }
+        val userLocation = GeoPoint(51.647609, 5.049018)
+//        val userLocation = mMyLocationOverlay.myLocation
+
+        val mainHandler = Handler(Looper.getMainLooper())
+
+        mainHandler.post(object : Runnable {
+            override fun run() {
+                checkLocation(userLocation)
+                mainHandler.postDelayed(this, 5000)
+            }
+        })
 
         // Add location overlay to map
         mMap.overlays.add(mMyLocationOverlay)
