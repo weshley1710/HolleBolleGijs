@@ -27,6 +27,8 @@ import java.io.InputStreamReader
 import java.net.URISyntaxException
 import io.socket.client.IO
 import io.socket.client.Socket
+import java.util.Timer
+import kotlin.concurrent.schedule
 import kotlin.math.PI
 import kotlin.math.atan2
 import kotlin.math.cos
@@ -114,43 +116,49 @@ class LocationActivity: AppCompatActivity(), MapListener, GpsStatus.Listener  {
                 }
             }
         }
-        //#TODO User location fetch problem!
-        val userLocation = GeoPoint(51.647609, 5.049018)
 
-//        val userLocation = mMyLocationOverlay.myLocation
-
-        println("Location: $userLocation")
-        if (userLocation != null) {
-            val userGeoPoint = GeoPoint(userLocation.latitude, userLocation.longitude)
-            println(userGeoPoint)
-            val thresholdDistance = 100 // Threshold distance in meters
-
-            for (location in locations) {
-                val markerLocation = GeoPoint(location.latitude, location.longitude)
-                val distance = calculateDistance(userLocation, markerLocation)
-                println("${location.naam}: $distance meters")
-                if(distance < 20) {
-                    println("sent request")
-                    // Socket Connection function
-                    sendData("Max", location.naam)
-                }
-                if (distance < thresholdDistance) {
-                    println("User is close to marker at Lat: ${location.latitude}, Long: ${location.longitude}")
-                    // Perform actions when user is close to marker
-                }
-            }
-        } else {
-            // Handle the case where user location is null
-            println("User location is null")
-            val toast = Toast.makeText(this, "Locatie word niet opgehaald.", Toast.LENGTH_SHORT) // in Activity
-            toast.show()
+        Timer().schedule(2000) {
+            val userLocation = GeoPoint(51.647609, 5.049018)
+//            val userLocation = mMyLocationOverlay.myLocation
+            println("Location: $userLocation")
+            checkLocation(userLocation)
         }
 
         // Add location overlay to map
         mMap.overlays.add(mMyLocationOverlay)
     }
 
-    fun sendData(name: String, gijs: String) {
+    private fun checkLocation(userLocation: GeoPoint) {
+        val gson = Gson()
+        val locations:Array<Location> = gson.fromJson(ReadJSONFromAssets(baseContext, "locations.json"),
+            Array<Location>::class.java)
+
+        if (userLocation != null) {
+            val thresholdDistance = 100 // Threshold distance in meters
+            val gijsRadius = 20
+
+            for (location in locations) {
+                val markerLocation = GeoPoint(location.latitude, location.longitude)
+                val distance = calculateDistance(userLocation, markerLocation)
+                println("${location.naam}: $distance meters")
+                if(distance < gijsRadius) {
+                    sendData("Ellie", location.naam)
+                    // #TODO POP-UP message
+                }
+                if (distance < thresholdDistance) {
+                    println("User is close to the marker ${location.naam} at Lat: ${location.latitude}, Long: ${location.longitude}")
+                    // #TODO Peform actions to markers when user is under 100m away.
+                }
+            }
+        } else {
+            // Handle the case where user location is null
+            println("User location is null")
+            val toast = Toast.makeText(this, "Er is iets fout gegaan.", Toast.LENGTH_SHORT)
+            toast.show()
+        }
+
+    }
+    private fun sendData(name: String, gijs: String) {
         try {
             mSocket = IO.socket("https://9c4793a3-aa33-4e20-b262-a577c59ab5ed-00-1hbimrom5u2be.worf.replit.dev/")
             mSocket.connect()
