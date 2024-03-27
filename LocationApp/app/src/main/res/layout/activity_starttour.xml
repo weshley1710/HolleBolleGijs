@@ -28,7 +28,7 @@
             android:id="@+id/titleText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/titelSpeurtocht"
+            android:text="@string/titelPersoonlijkegroet"
             android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="#000000"
@@ -37,14 +37,15 @@
 
         <ImageView
             android:id="@+id/backbutton"
-            android:layout_width="14dp"
-            android:layout_height="24dp"
+            android:layout_width="6dp"
+            android:layout_height="16dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="16dp"
             android:layout_centerVertical="true"
-            android:onClick="overviewactivity"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="26dp"
             android:contentDescription="@string/HolleBolleGijs"
+            android:onClick="overviewactivity"
             android:src="@drawable/arrowback" />
 
 
@@ -62,12 +63,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/relativeLayout"
-        app:srcCompat="@drawable/schermtour" />
+        app:srcCompat="@drawable/schermtour"
+        android:contentDescription="@string/HolleBolleGijs" />
 
     <ImageButton
         android:id="@+id/starttourimagebutton"
         android:layout_width="300dp"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
+        android:layout_marginTop="24dp"
         android:layout_centerInParent="true"
         android:background="@null"
         android:contentDescription="@string/HolleBolleGijs"
@@ -83,15 +86,33 @@
         android:id="@+id/textViewTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:layout_gravity="center"
-        android:text="@string/startspeurtocht"
+        android:text="@string/nameninvoer"
         android:textColor="@color/white"
-        android:textSize="30sp"
+        android:textSize="17sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/starttourimagebutton"
+        android:layout_centerInParent="true"
+    app:layout_constraintBottom_toBottomOf="@+id/starttourimagebutton"
         app:layout_constraintEnd_toEndOf="@+id/starttourimagebutton"
         app:layout_constraintStart_toStartOf="@+id/starttourimagebutton"
         app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="@string/privacyregelgeving"
+        android:textColor="@color/redtextbutton"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
+        app:layout_constraintVertical_bias="0.875" />
 
     <ImageButton
         android:id="@+id/imageButton3"
@@ -99,11 +120,32 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:onClick="mainactivity"
+        android:onClick="overviewactivity"
         android:background="@color/transparent"
         android:elevation="8dp"
         app:srcCompat="@drawable/arrow"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/HolleBolleGijs" />
+
+
+    <ImageView
+        android:id="@+id/imageViewMenu"
+        android:contentDescription="@string/HolleBolleGijs"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:src="@drawable/menu"
+        android:scaleType="fitXY"
+        android:onClick="mainactivity"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#80000000"
+        android:visibility="gone" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,10 +2,12 @@ package com.example.locationapp
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.content.res.Resources
 import android.location.GpsStatus
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -37,6 +39,10 @@ import kotlin.math.sin
 import kotlin.math.sqrt
 
 class LocationActivity: AppCompatActivity(), MapListener, GpsStatus.Listener  {
+
+    fun stamboomactivity(view: View) {
+        startActivity(Intent(this, OverviewActivity::class.java))
+    }
 
     private lateinit var mMap: MapView
     private lateinit var controller: IMapController
