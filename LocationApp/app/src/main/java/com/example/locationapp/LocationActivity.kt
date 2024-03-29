@@ -33,6 +33,7 @@ import io.socket.client.IO
 import io.socket.client.Socket
 import java.util.Timer
 import kotlin.concurrent.schedule
+import kotlin.concurrent.timer
 import kotlin.math.PI
 import kotlin.math.atan2
 import kotlin.math.cos
@@ -125,23 +126,26 @@ class LocationActivity: AppCompatActivity(), MapListener, GpsStatus.Listener  {
             }
         }
 
-//        val userLocation = GeoPoint(51.647609, 5.049018)
-        val userLocation = mMyLocationOverlay.myLocation
-
         val mainHandler = Handler(Looper.getMainLooper())
 
         mainHandler.post(object : Runnable {
             override fun run() {
-                checkLocation(userLocation)
+//                val userLocation = GeoPoint(51.647609, 5.049018)
+                val userLocation = mMyLocationOverlay.myLocation
+                if (userLocation != null) {
+                    checkLocation(userLocation)
+                }
                 mainHandler.postDelayed(this, 5000)
             }
         })
+
 
         // Add location overlay to map
         mMap.overlays.add(mMyLocationOverlay)
     }
 
     private fun checkLocation(userLocation: GeoPoint) {
+        val Username = "Ellie"
         val gson = Gson()
         val locations:Array<Location> = gson.fromJson(ReadJSONFromAssets(baseContext, "locations.json"),
             Array<Location>::class.java)
@@ -154,8 +158,7 @@ class LocationActivity: AppCompatActivity(), MapListener, GpsStatus.Listener  {
                 val distance = calculateDistance(userLocation, markerLocation)
                 println("${location.naam}: $distance meters")
                 if(distance < gijsRadius) {
-                    sendData("Ellie", location.naam)
-                    // #TODO POP-UP message
+                    sendData(Username, location.naam)
                     val text = "Gefelicteerd je hebt ${location.naam} gevonden!"
                     val toast = Toast.makeText(this, text, Toast.LENGTH_SHORT)
                     toast.show()
