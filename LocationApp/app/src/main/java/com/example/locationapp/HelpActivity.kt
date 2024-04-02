@@ -16,7 +16,7 @@ class HelpActivity : AppCompatActivity(){
         startActivity(Intent(this, MainActivity::class.java))
     }
 
-    fun stamboomactivity(view: View) {
-        startActivity(Intent(this, StamboomActivity::class.java))
+    fun infoactivity(view: View) {
+        startActivity(Intent(this, InfoActivity::class.java))
     }
 }
