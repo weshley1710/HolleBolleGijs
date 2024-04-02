@@ -28,10 +28,6 @@ class StamboomActivity : AppCompatActivity() {
         startActivity(Intent(this, HelpActivity::class.java))
     }
 
-    fun infoactivity(view: View) {
-        startActivity(Intent(this, InfoActivity::class.java))
-    }
-
     fun beloningactivity(view: View) {
         startActivity(Intent(this, BeloningActivity::class.java))
     }

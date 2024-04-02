@@ -83,7 +83,7 @@
                     android:layout_marginTop="20dp"
                     android:background="@null"
                     android:src="@drawable/rodeknop"
-                    android:onClick="stamboomactivity"
+                    android:onClick="infoactivity"
                     android:contentDescription="@string/HolleBolleGijs"
                     android:scaleType="fitCenter"
                     android:layout_centerInParent="true"/>
@@ -92,7 +92,7 @@
                     android:id="@+id/titelknop"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="stamboomactivity"
+                    android:onClick="infoactivity"
                     android:textSize="17sp"
                     android:textStyle="bold"
                     android:text="@string/verzamelStamboom"

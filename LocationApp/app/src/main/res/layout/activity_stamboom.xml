@@ -49,20 +49,9 @@
             android:id="@+id/helpbutton"
             android:layout_width="28dp"
             android:layout_height="28dp"
-            android:src="@drawable/help"
+            android:src="@drawable/info"
             android:onClick="helpactivity"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="16dp"
-            android:layout_centerVertical="true"
-            android:contentDescription="@string/HolleBolleGijs" />
-
-        <ImageView
-            android:id="@+id/infobutton"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:src="@drawable/info"
-            android:onClick="infoactivity"
-            android:layout_toStartOf="@id/helpbutton"
             android:layout_marginEnd="16dp"
             android:layout_centerVertical="true"
             android:contentDescription="@string/HolleBolleGijs" />
