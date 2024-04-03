@@ -41,7 +41,7 @@ import kotlin.math.sqrt
 class LocationActivity: AppCompatActivity(), MapListener, GpsStatus.Listener  {
 
     fun stamboomactivity(view: View) {
-        startActivity(Intent(this, OverviewActivity::class.java))
+        startActivity(Intent(this, StamboomActivity::class.java))
     }
 
     private lateinit var mMap: MapView
