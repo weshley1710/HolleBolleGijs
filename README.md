@@ -54,11 +54,11 @@ Here's a screenshot of what the Efteling app looks like (It will give a demonstr
 
 ## Installation 
 It is possible to download the mobile app by the following APK file: 
-- ...
+- [Android APK App](https://github.com/MUX-ON-WINDOWS/EftelingApp/blob/main/LocationApp/app/release/app-release.apk)
 
 ## Usage
 The mobile app can only be used on the following platform(s):
-- [Android APK App](https://github.com/MUX-ON-WINDOWS/EftelingApp/blob/main/LocationApp/app/release/app-release.apk)
+- Android
 
 ## Version
 There were some issues with Gitlab during the process of the project, so we used Github to continue. That's why the version control has been lost by uploading the code of this project to this repository. To find and view the earlier steps, you can follow the next link to the corresponding Github:
