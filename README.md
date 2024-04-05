@@ -61,8 +61,8 @@ The mobile app can only be used on the following platform(s):
 - Android
 
 ## Version
-There were some issues with Gitlab during the process of the project, so we used Github to continue. That's why the version control has been lost by uploading the code of this project to this repository. To find and view the earlier steps, you can follow the next link to the corresponding Github:
-- [Efteling App Github](https://github.com/MUX-ON-WINDOWS/EftelingApp)
+There were some issues with Gitlab during the process of the project, so we used Github to continue. That's why the version control has been lost by uploading the code of this project to the repository on Gitlab. You can see the serval steps we've taken during this process on Github. To find and view the end version of the fully code, you can follow the next link to the corresponding Gitlab:
+- [Efteling App Gitlab](https://projects.fhict.nl/multi-tb/spring-24/leersprints_groep2)
 
 
 
