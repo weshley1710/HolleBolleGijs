@@ -50,7 +50,7 @@ Within these pages, there are multiple functionalities:
 ## Visual
 Here's a screenshot of what the Efteling app looks like (It will give a demonstration by clicking on the image):
 
-[![Project Demonstration](./EftelingLocationApp.png)](./EftelingLocationApp.mp4)
+[![Project Demonstration](./eftelingapplandingspage.png)](./eftelingprototype.mp4)
 
 ## Installation 
 It is possible to download the mobile app by the following APK file: 
@@ -62,7 +62,7 @@ The mobile app can only be used on the following platform(s):
 
 ## Version
 There were some issues with Gitlab during the process of the project, so we used Github to continue. That's why the version control has been lost by uploading the code of this project to this repository. To find and view the earlier steps, you can follow the next link to the corresponding Github:
-- [Efteling App Github]() ...
+- [Efteling App Github](https://github.com/MUX-ON-WINDOWS/EftelingApp)
 
 
 
