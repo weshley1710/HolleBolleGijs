@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Holle Bolle Websocket Response Page</title>
+    <script src="https://cdn.socket.io/4.3.2/socket.io.min.js"></script>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #f0eade;
+            color: #3c5c5e;
+            text-align: center;
+            padding: 50px;
+        }
+        #nameDisplay, #sentenceDisplay {
+            background-color: #fffbea;
+            border: 2px solid #d3c1a5;
+            padding: 20px;
+            margin: 20px auto;
+            width: 80%;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            background-color: #920e29;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #5e081a;
+        }
+    </style>
+</head>
+<body>
+    <div id="nameDisplay">Waiting for name...</div>
+    <div id="sentenceDisplay">Waiting for sentence...</div>
+
+    <script>
+        var serverUrl = 'https://9a46aa5c-687e-4ac4-821c-c8445eb473c9-00-3fmts3l00dd4d.spock.replit.dev/';
+        var socket = io(serverUrl);
+        var isAudioPlaying = false; // Flag to indicate if audio is currently playing
+
+        socket.on('connect', function() {
+            console.log('Connected to the server');
+        });
+
+        socket.on('name', function(name) {
+            console.log('Received name:', name);
+            document.getElementById('nameDisplay').textContent = `Received name: ${name}`;
+            // Only proceed if no audio is currently playing
+            if (!isAudioPlaying) {
+                checkAudioFiles(name, function(existingFiles) {
+                    playRandomAudio(existingFiles);
+                });
+            }
+        });
+
+        socket.on('personalizedSentence', function(sentence) {
+            console.log('Received sentence:', sentence);
+            document.getElementById('sentenceDisplay').textContent = sentence;
+        });
+
+        function checkAudioFiles(name, callback) {
+            let existingFiles = [];
+            let attempts = 0;
+            const maxFiles = 10; // The maximum number of audio files you expect
+
+            for (let i = 1; i <= maxFiles; i++) {
+                const audioUrl = `audio/${name}Papier${i}.wav`;
+                const audio = new Audio(audioUrl);
+
+                audio.addEventListener('canplaythrough', () => {
+                    existingFiles.push(audioUrl); // This file exists
+                    attempts++;
+                    if (attempts === maxFiles) {
+                        callback(existingFiles);
+                    }
+                }, false);
+
+                audio.addEventListener('error', () => {
+                    attempts++;
+                    if (attempts === maxFiles) {
+                        callback(existingFiles);
+                    }
+                }, false);
+
+                audio.load(); // Start loading the audio file to trigger the events
+            }
+        }
+
+        function playRandomAudio(existingFiles) {
+            if (existingFiles.length > 0) {
+                isAudioPlaying = true; // Set the flag to true as an audio will start playing
+                const randomIndex = Math.floor(Math.random() * existingFiles.length);
+                const audioToPlay = existingFiles[randomIndex];
+                const audio = new Audio(audioToPlay);
+                
+                audio.play().then(() => {
+                    console.log("Audio playing: " + audioToPlay);
+                }).catch(error => console.error('Playback failed:', error));
+
+                audio.onended = function() { // Listen to the end of the audio
+                    console.log("Audio ended.");
+                    isAudioPlaying = false; // Reset the flag when the audio ends
+                };
+            } else {
+                console.log('No audio files found for the name.');
+            }
+        }
+
+        socket.on('connect_error', function() {
+            console.error('Connection to the server failed');
+            document.getElementById('nameDisplay').textContent = 'Server is offline. Please try again later.';
+        });
+    </script>
+
+    <button onclick="sendMessage()">Send Test Name</button>
+    
+    <script>
+        function sendMessage() {
+            var testName = "Ellie"; // Example test name for manual event emitting
+            socket.emit("message", testName);
+            console.log(`Test name "${testName}" sent to the server.`);
+        }
+    </script>
+</body>
+</html>
